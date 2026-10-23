@@ -1,35 +1,53 @@
 # Exam Hall Seat Allocation System
 
-## Main DAA Algorithm
-**Randomized Greedy Algorithm**
+A Python-based DAA mini-project that generates examination seating arrangements using a **Randomized Greedy Algorithm**. The system aims to minimize adjacent students from the same division by checking all eight directions, including diagonals.
 
-### Files
-- `main.py` -> starts the program
-- `gui.py` -> screen and buttons
-- `data.py` -> student data
-- `algorithm.py` -> DAA algorithm
+## Features
 
-### Important feature
-Each time **Generate Allocation** is clicked, the program can create a different valid seating arrangement.
+* Automatic seat allocation
+* Add and delete students
+* Configure hall rows and columns
+* Find a student's seat using roll number
+* Export seating arrangements to CSV
+* Generate alternative seating arrangements
 
-It does this by:
-1. Randomly shuffling students with equal priority.
-2. Randomly shuffling free seats.
-3. Randomly choosing between equally good seats.
+## Technologies Used
 
-It is still a **Greedy Algorithm** because each student gets the best current seat according to the score.
+* Python 3
+* Tkinter
+* Randomized Greedy Algorithm
 
-### Run
+## Project Structure
+
+```text
+smart-exam-seat-allocation/
+├── main.py
+├── gui.py
+├── algorithm.py
+├── data.py
+├── README.md
+└── .gitignore
+```
+
+## How to Run
+
+Make sure Python 3 is installed.
+
 ```bash
 python main.py
 ```
 
-No external package is required.
+No external Python packages are required.
 
-### Viva line
-"Our project uses a randomized greedy algorithm. For every student, we calculate a score for each free seat. Same-division neighbours get a high penalty. We choose the best current seat. Random tie-breaking gives a different valid arrangement when Generate is clicked again."
+## Algorithm
 
-### Complexity
-For `S` students and `H` seats:
-- Time: **O(S × H)**
-- Space: **O(S + H)**
+The algorithm evaluates available seats and prioritizes those with fewer same-division neighbours. If multiple seats have the same score, it selects one randomly.
+
+The algorithm checks horizontal, vertical, and diagonal neighbours. Randomization can produce different seating arrangements, but a globally optimal arrangement is not guaranteed.
+
+## Complexity Analysis
+
+Let `S` be the number of students and `H` be the total number of seats.
+
+* **Time Complexity:** O(SH + S log S + H)
+* **Space Complexity:** O(S + H)
